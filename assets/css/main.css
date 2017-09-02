@@ -1,0 +1,76 @@
+
+
+/* Remove the navbar's default margin-bottom and rounded borders */ 
+.navbar {
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
+.main-content {
+	background-color: #f1f1f1;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.sidenav-content {
+  margin-right: 10%;
+  padding: 0% 20% 10% 20%;
+}
+
+.content-pane {
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+.text-block {
+	background-color: #a479d2;
+}
+
+.proj-table {
+	background-color: #a479d2;
+	width: 80%;
+}
+
+.proj-table tr td ol {
+	padding-left: 20px;
+}
+
+.proj-cell {
+	margin: 5% 5% 5% 5%;
+}
+
+.proj-header {
+	font-weight: bold;
+}
+
+.table thead tr th {
+	border-bottom: 2px solid #000;
+}
+
+.table tbody tr td {
+	border-bottom: 1px solid #000;
+}
+
+hr {
+	border-top: 1px solid black;
+}
+
+/* Set black background color, white text and some padding */
+footer {
+  background-color: #555;
+  color: white;
+  padding: 15px;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+  .sidenav {
+	height: auto;
+	padding: 15px;
+  }
+  .row.content {height:auto;} 
+}
+
+* {
+	outline: 1px solid red;
+}
