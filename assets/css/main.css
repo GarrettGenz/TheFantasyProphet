@@ -1,9 +1,27 @@
-
+/* Import fonts */
+@import url('https://fonts.googleapis.com/css?family=Cabin|Fredericka+the+Great');
 
 /* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
   margin-bottom: 0;
-  border-radius: 0;
+    border-radius: 0;
+	font-family: 'Fredericka the Great', cursive;
+}
+
+.navbar-header .navbar-brand:visited {
+    color: #9d9d9d;
+}
+
+.navbar-header .navbar-brand:hover {
+	color: #a22a2c;
+}
+
+#myNavbar .navbar-nav li a:hover {
+	color: #a22a2c;
+}
+
+body {
+    font-family: 'Cabin', sans-serif;
 }
 
 .main-content {
@@ -13,8 +31,7 @@
 }
 
 .sidenav-content {
-  margin-right: 10%;
-  padding: 0% 20% 10% 20%;
+    margin-right: 20%;
 }
 
 .content-pane {
@@ -23,12 +40,12 @@
 }
 
 .text-block {
-	background-color: #a479d2;
+	background-color: #91b6d4;
 }
 
 .proj-table {
-	background-color: #a479d2;
-	width: 80%;
+	background-color: #91b6d4;
+	width: 100%;
 }
 
 .proj-table tr td ol {
@@ -55,6 +72,15 @@ hr {
 	border-top: 1px solid black;
 }
 
+h3 a {
+	color: black;
+}
+
+h3 a:hover {
+	text-decoration: none;
+	color: #a22a2c;
+}
+
 /* Set black background color, white text and some padding */
 footer {
   background-color: #555;
@@ -69,8 +95,4 @@ footer {
 	padding: 15px;
   }
   .row.content {height:auto;} 
-}
-
-* {
-	outline: 1px solid red;
 }

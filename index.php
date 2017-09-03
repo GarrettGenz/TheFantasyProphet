@@ -19,47 +19,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-  
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-left" href="#"><img src="assets/images/FantasyHat.png"></a>
-	  <a class="navbar-brand" href="#">The Fantasy Prophet</a>
-    </div>
-	
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">NFL <span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li><a href="#">Player Projections</a></li> 
-				<li><a href="#">99¢ Draftkings Cash Lineup</a></li> 
-			</ul>
-		</li>
-        <li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">NBA <span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li><a href="#">Player Projections</a></li> 
-				<li><a href="#">99¢ Draftkings Cash Lineup</a></li> 
-			</ul>
-		</li>
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">CFL <span class="caret"></span></a>
-			<ul class="dropdown-menu">
-				<li><a href="#">Player Projections</a></li> 
-				<li><a href="#">99¢ Draftkings Cash Lineup</a></li> 
-				<li><a href="#">Weekly Recaps</a></li> 
-			</ul>
-		</li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<?php include 'assets/partials/header.php'; ?>
   
 <div class="container-fluid text-center">    
   <div class="row content main-content">
@@ -292,6 +252,7 @@
     <div class="col-sm-3 sidenav text-left">
 		<div class="sidenav-content">
 		<h3>Recent Posts</h3>
+		<hr>
 		<p> Welcome </p>
 		<p> CFL Week 11 Player Projections </p>
 		</div>
@@ -299,9 +260,7 @@
   </div>
 </div>
 
-<footer class="container-fluid text-center">
-  <p>Copyright (c) 2017 The Fantasy Prophet. All rights reserved.</p>
-</footer>
+<?php include 'assets/partials/footer.php'; ?>
 
 </body>
 </html>
