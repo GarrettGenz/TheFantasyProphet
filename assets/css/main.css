@@ -5,7 +5,20 @@
 .navbar {
   margin-bottom: 0;
     border-radius: 0;
-	font-family: 'Fredericka the Great', cursive;
+    font-family: 'Fredericka the Great', cursive;
+}
+
+.navbar-header .navbar-brand {
+    font-size: 150%;
+}
+
+#myNavbar .navbar-nav li a {
+    font-size: 125%;
+}
+
+#myNavbar .navbar-nav li ul {
+    font-size: 90%;
+    font-family: 'Cabin', sans-serif;
 }
 
 .navbar-header .navbar-brand:visited {
