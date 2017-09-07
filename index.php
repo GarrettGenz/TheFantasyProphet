@@ -13,7 +13,10 @@
 	
 	<!-- Custom CSS -->
 	<link href="assets/css/main.css" rel="stylesheet">
-	
+
+    <!-- Custom PHP functions to populate page -->
+    <?php include 'assets/lib/functions.php'; ?>
+
     <meta charset="UTF-8">
     <title>The Fantasy Prophet</title>
 </head>
@@ -251,10 +254,7 @@
     </div>
     <div class="col-sm-3 sidenav text-left">
 		<div class="sidenav-content">
-		<h3>Recent Posts</h3>
-		<hr>
-		<p> Welcome </p>
-		<p> CFL Week 11 Player Projections </p>
+        <?php getRecentPosts($web_db_conn, $cfldb_conn, $nfldb_conn); ?>
 		</div>
 	</div>
   </div>

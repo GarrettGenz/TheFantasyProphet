@@ -44,12 +44,14 @@ body {
 }
 
 .sidenav-content {
-    margin-right: 20%;
+    margin-right: 10%;
+    font-size: 110%;
 }
 
 .content-pane {
 	margin-left: 10%;
 	margin-right: 10%;
+    font-size: 110%;
 }
 
 .text-block {
