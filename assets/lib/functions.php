@@ -1,74 +1,71 @@
 <?php
 include 'config.php';
+include 'CFL.php';
 
 // Separate database connections are required for each database in PostgreSQL
 $web_db_conn = pg_connect("host=" . $endpoint . " dbname=" .
                             $web_database . " user=" . $web_user . " password=" . $web_password);
 
-$cfldb_conn = pg_connect("host=" . $endpoint . " dbname=" .
-                            $cfl_database . " user=" . $cfl_user . " password=" . $cfl_password);
-
-$nfldb_conn = pg_connect("host=" . $endpoint . " dbname=" .
-                            $nfl_database . " user=" . $nfl_user . " password=" . $nfl_password);
-
-function getRecentPosts($web_conn, $cfl_conn, $nfl_conn) {
+function getRecentPosts() {
     $recent_posts = array();
 
     echo "<h3>Recent Posts</h3>
 		  <hr>";
 
-    $web_posts = getWebPosts($web_conn);
+    $web_posts = getWebPosts($GLOBALS['web_db_conn']);
 
     foreach ($web_posts as $title => $values) {
-        $recent_posts[$title] = $values[1];
+        // Pass date and partial URL:
+        // posts.php?post_id=1
+        $recent_posts[$title] = array($values[0], $values[1]);
     }
 	
-    $cfl_posts = getCFLPosts($cfl_conn);
+    $cfl_posts = getCFLPosts();
 
     foreach ($cfl_posts as $title => $values) {
-        $recent_posts[$title] = $values[1];
+        // Pass date and partial URL:
+        // player_projections.php?league=CFL&season=2017&week=3
+        $recent_posts[$title] = array($values[0], $values[1]);
     }
+	
+	// Get array of post dates for sorting
+	foreach ($recent_posts as $title => $values) {
+		$post_dates[$title] = $values[0];
+	}
 
     // Sort array in descending order of when post was made
-    arsort($recent_posts);
+    array_multisort($post_dates, SORT_DESC, $recent_posts);
 
 	// Only return the top 10 recent posts
     $returned_posts = array_slice($recent_posts, 0, 10, true);
 
-    foreach ($returned_posts as $title => $date) {
-         echo "<p> $title </p>";
+	// Build each post in HTML
+    foreach ($returned_posts as $title => $values) {
+         echo "<p> <a href=\"$values[1]\">$title</a> </p>";
     }
 }
 
 // Grab posts that are manually created
-function getWebPosts($web_conn) {
-    $result = pg_query($web_conn, "SELECT * FROM posts LIMIT 10");
+// Returns array with Key: Title, Values: Post Date, URL
+function getWebPosts() {
+    $result = pg_query($GLOBALS['web_db_conn'], "SELECT * FROM posts LIMIT 10");
 
     while ($row = pg_fetch_row($result)) {
-        // Key: Title, Values: 'WEB', post_date, post_id
-        $recent_posts[$row[2]] = array('WEB', $row[1], $row[0]);
+        // Key: Title, Value: post_date, URL params 
+        $recent_posts[$row[2]] = array($row[1], "posts.php?post_id=$row[0]");
     }
 
     return $recent_posts;
 }
 
-// Grab CFL posts
-function getCFLPosts($cfl_conn) {
-    $result = pg_query($cfl_conn, "SELECT	(SELECT MIN(date_start) FROM games WHERE games.season = ppp.season AND games.week = ppp.week) AS \"post_date\",
-										CAST(season AS text) || ' Week ' || 
-										CAST(week AS text) || ' CFL  Player Projections' AS \"title\",
-										ppp.season,
-										ppp.week
-									FROM player_proj_points ppp
-									GROUP BY ppp.season, ppp.week");
+// Grab title and content for specific post
+function getPost($post_id) {
+    $result = pg_query_params($GLOBALS['web_db_conn'], "SELECT title, content FROM posts WHERE post_id = $1", array($post_id));
 
-    while ($row = pg_fetch_row($result)) {
-        // Key: Title, Values: 'CFL', post_date, season, week
-        $recent_posts[$row[1]] = array('CFL', $row[0], $row[2], $row[3]);
-    }
+    $row = pg_fetch_row($result);
 
-    return $recent_posts;
+    $title = $row[0];
+    $content = $row[1];
+
+    return array($title, $content);
 }
-
-
-

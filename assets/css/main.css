@@ -96,6 +96,15 @@ h3 a:hover {
 	color: #a22a2c;
 }
 
+p a {
+    color: black;
+}
+
+p a:hover {
+    text-decoration: none;
+    color: #a22a2c;
+}
+
 /* Set black background color, white text and some padding */
 footer {
   background-color: #555;

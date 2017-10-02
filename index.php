@@ -254,7 +254,7 @@
     </div>
     <div class="col-sm-3 sidenav text-left">
 		<div class="sidenav-content">
-        <?php getRecentPosts($web_db_conn, $cfldb_conn, $nfldb_conn); ?>
+        <?php getRecentPosts($web_db_conn); ?>
 		</div>
 	</div>
   </div>
