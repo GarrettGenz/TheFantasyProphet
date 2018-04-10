@@ -3,7 +3,7 @@
 
 /* Remove the navbar's default margin-bottom and rounded borders */ 
 .navbar {
-  margin-bottom: 0;
+    margin-bottom: 0;
     border-radius: 0;
     font-family: 'Fredericka the Great', cursive;
 }
@@ -68,7 +68,7 @@ body {
 }
 
 .proj-cell {
-	margin: 5% 5% 5% 5%;
+	margin: 2% 5% 5% 5%;
 }
 
 .proj-header {
@@ -87,22 +87,19 @@ hr {
 	border-top: 1px solid black;
 }
 
-h3 a {
+h3 a,
+.proj-header a,
+td a,
+p a {
 	color: black;
 }
 
-h3 a:hover {
+h3 a:hover,
+.proj-header a:hover,
+td a:hover,
+p a:hover {
 	text-decoration: none;
 	color: #a22a2c;
-}
-
-p a {
-    color: black;
-}
-
-p a:hover {
-    text-decoration: none;
-    color: #a22a2c;
 }
 
 /* Set black background color, white text and some padding */

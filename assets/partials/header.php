@@ -21,14 +21,15 @@
                         <li><a href="#">99¢ Draftkings Cash Lineup</a></li>
                     </ul>
                 </li>
+            -->
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">NBA <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="#">Player Projections</a></li>
-                        <li><a href="#">99¢ Draftkings Cash Lineup</a></li>
+                        <li><a href="build_lineup.php?league=NBA">Lineup Generator</a></li>
                     </ul>
                 </li>
-			-->
+
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">CFL <span class="caret"></span></a>
                     <ul class="dropdown-menu">

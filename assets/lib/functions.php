@@ -69,3 +69,25 @@ function getPost($post_id) {
 
     return array($title, $content);
 }
+
+// Function to convert position abbreviation to position name
+function getPositionName($position_abbr) {
+	if ($position_abbr == 'QB') {
+		return 'Quarterbacks';
+	}
+	else if ($position_abbr == 'RB') {
+		return 'Runningbacks';
+	}
+	else if ($position_abbr == 'WR') {
+		return 'Wide Receivers';
+	}
+	else if ($position_abbr == 'TE') {
+		return 'Tight Ends';
+	}
+	else if ($position_abbr == 'DST') {
+		return 'Defenses';
+	}
+	else {
+		return $position_abbr;
+	}
+}
